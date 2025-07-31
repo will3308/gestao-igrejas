@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Patrimônio de Igrejas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3>Gestão de Patrimônio</h3>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item active" data-target="cadastrar-igreja">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+                    Cadastrar Igreja
+                </a>
+            </li>
+            <li class="nav-item" data-target="catalogar-itens">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    Catalogar Itens
+                </a>
+            </li>
+            <li class="nav-item" data-target="transferir-itens">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"></polyline><line x1="4" y1="20" x2="21" y2="3"></line><polyline points="8 21 3 21 3 16"></polyline><line x1="20" y1="4" x2="3" y2="21"></line></svg>
+                    Transferir Itens
+                </a>
+            </li>
+            <li class="nav-item" data-target="pesquisar-itens">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    Pesquisar Itens
+                </a>
+            </li>
+            <li class="nav-item" data-target="relatorio-igreja">
+                <a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Relatório por Igreja
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <main class="content">
+        <!-- Seção de Cadastro de Igreja -->
+        <section id="cadastrar-igreja" class="page active">
+            <h1>Cadastrar Nova Igreja</h1>
+            <form id="form-cadastrar-igreja" class="form-container">
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" required>
+                </div>
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome-igreja">Nome da Igreja</label>
+                    <input type="text" id="nome-igreja" required>
+                </div>
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+        </section>
+
+        <!-- Seção de Catalogar Itens (Atualizada) -->
+        <section id="catalogar-itens" class="page">
+            <h1>Catalogar Itens</h1>
+            <form id="form-catalogar-item" class="form-container">
+                <div class="form-group">
+                    <label for="select-igreja-catalogo">Selecione a Igreja</label>
+                    <select id="select-igreja-catalogo" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="nome-item">Nome do Item</label>
+                    <input type="text" id="nome-item" placeholder="Ex: Cadeira de Plástico Azul" required>
+                </div>
+                <div class="form-group">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="ids">IDs (separados por vírgula)</label>
+                    <input type="text" id="ids" placeholder="Ex: 1001, 1002, 1003">
+                </div>
+                <button type="submit" class="btn">Catalogar</button>
+            </form>
+        </section>
+
+        <!-- Seção de Transferir Itens (Atualizada) -->
+        <section id="transferir-itens" class="page">
+            <h1>Transferir Itens entre Igrejas</h1>
+            <form id="form-transferir-item" class="form-container">
+                <div class="form-group">
+                    <label for="select-item-transferir">Selecione o Item de Origem</label>
+                    <select id="select-item-transferir" required></select>
+                </div>
+                 <div class="form-group">
+                    <label>Selecione os IDs para Transferir</label>
+                    <div id="lista-ids-transferir" class="checkbox-container">
+                        <p>Selecione um item para ver os IDs disponíveis.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="quantidade-transferir">Quantidade a Transferir</label>
+                    <input type="number" id="quantidade-transferir" min="0" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="select-igreja-destino">Igreja de Destino</label>
+                    <select id="select-igreja-destino" required></select>
+                </div>
+                <button type="submit" class="btn">Transferir</button>
+            </form>
+        </section>
+
+        <!-- Seção de Pesquisar Itens -->
+        <section id="pesquisar-itens" class="page">
+            <h1>Pesquisar Itens no Catálogo</h1>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="input-pesquisa">Buscar por Nome do Item</label>
+                    <input type="text" id="input-pesquisa" placeholder="Digite o nome do item...">
+                </div>
+            </div>
+            <div id="resultado-pesquisa" class="table-container"></div>
+        </section>
+
+        <!-- Seção de Relatório por Igreja -->
+        <section id="relatorio-igreja" class="page">
+            <h1>Relatório por Igreja</h1>
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="select-igreja-relatorio">Selecione uma Igreja</label>
+                    <select id="select-igreja-relatorio"></select>
+                </div>
+            </div>
+            <div id="resultado-relatorio" class="table-container"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
