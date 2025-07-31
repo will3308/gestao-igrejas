@@ -48,6 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
     
+    // ==================================================================
+    // ALTERAÇÃO APLICADA AQUI
+    // ==================================================================
     const updateItemSelect = () => {
         const select = document.getElementById('select-item-transferir');
         const currentVal = select.value;
@@ -57,7 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 const igreja = state.igrejas[item.igrejaId];
                 const option = document.createElement('option');
                 option.value = index;
-                option.textContent = `${item.nome} (Igreja: ${igreja.nome}, Qtd: ${item.quantidade})`;
+
+                // Texto antigo:
+                // option.textContent = `${item.nome} (Igreja: ${igreja.nome}, Qtd: ${item.quantidade})`;
+                
+                // Texto NOVO, com a cidade:
+                option.textContent = `${item.nome} (Igreja: ${igreja.nome}, ${igreja.cidade} | Qtd: ${item.quantidade})`;
+                
                 select.appendChild(option);
             }
         });
@@ -83,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateIgrejaSelects();
     });
 
-    // Catalogar Item (Atualizado)
+    // Catalogar Item
     document.getElementById('form-catalogar-item').addEventListener('submit', (e) => {
         e.preventDefault();
         const nomeItem = document.getElementById('nome-item').value;
@@ -118,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateAllSelects();
     });
 
-    // Lógica de Transferência (Atualizada)
+    // Lógica de Transferência
     const formTransferirItem = document.getElementById('form-transferir-item');
     const selectItemTransferir = document.getElementById('select-item-transferir');
     const listaIdsContainer = document.getElementById('lista-ids-transferir');
@@ -206,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    // Pesquisa de Itens (Atualizada)
+    // Pesquisa de Itens
     const inputPesquisa = document.getElementById('input-pesquisa');
     const resultadoPesquisa = document.getElementById('resultado-pesquisa');
     
