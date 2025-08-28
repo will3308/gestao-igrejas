@@ -48,7 +48,6 @@
         </ul>
     </nav>
     <main class="content">
-        <!-- Seção de Cadastro de Igreja -->
         <section id="cadastrar-igreja" class="page active">
             <h1>Cadastrar Nova Igreja</h1>
             <form id="form-cadastrar-igreja" class="form-container">
@@ -64,11 +63,19 @@
                     <label for="nome-igreja">Nome da Igreja</label>
                     <input type="text" id="nome-igreja" required>
                 </div>
+                <div class="form-group">
+                    <label>Imagens da Igreja</label>
+                    <div class="image-upload-controls">
+                        <input type="file" id="imagens-igreja" accept="image/*" multiple style="display: none;">
+                        <button type="button" class="btn-secondary" onclick="document.getElementById('imagens-igreja').click();">Selecionar Arquivos</button>
+                        <button type="button" id="btn-abrir-camera" class="btn-secondary">Tirar Foto com Câmera</button>
+                    </div>
+                    <div id="preview-imagens" class="preview-container"></div>
+                </div>
                 <button type="submit" class="btn">Cadastrar</button>
             </form>
         </section>
 
-        <!-- Seção de Catalogar Itens (Atualizada) -->
         <section id="catalogar-itens" class="page">
             <h1>Catalogar Itens</h1>
             <form id="form-catalogar-item" class="form-container">
@@ -92,7 +99,6 @@
             </form>
         </section>
 
-        <!-- Seção de Transferir Itens (Atualizada) -->
         <section id="transferir-itens" class="page">
             <h1>Transferir Itens entre Igrejas</h1>
             <form id="form-transferir-item" class="form-container">
@@ -118,7 +124,6 @@
             </form>
         </section>
 
-        <!-- Seção de Pesquisar Itens -->
         <section id="pesquisar-itens" class="page">
             <h1>Pesquisar Itens no Catálogo</h1>
             <div class="form-container">
@@ -130,7 +135,6 @@
             <div id="resultado-pesquisa" class="table-container"></div>
         </section>
 
-        <!-- Seção de Relatório por Igreja -->
         <section id="relatorio-igreja" class="page">
             <h1>Relatório por Igreja</h1>
             <div class="form-container">
@@ -142,6 +146,18 @@
             <div id="resultado-relatorio" class="table-container"></div>
         </section>
     </main>
+    
+    <div id="camera-modal" class="modal">
+        <div class="modal-content">
+            <video id="camera-view" autoplay playsinline></video>
+            <div class="modal-controls">
+                <button id="btn-capturar-foto" class="btn">Capturar</button>
+                <button id="btn-fechar-camera" class="btn-secondary">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <canvas id="camera-canvas" style="display:none;"></canvas>
+    
     <script src="script.js"></script>
 </body>
 </html>
